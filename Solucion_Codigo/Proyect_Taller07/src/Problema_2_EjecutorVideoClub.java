@@ -26,6 +26,7 @@ class Pelicula{
         return "Pelicula{" + "titulo=" + titulo + ", autor=" + autor + ", anio=" + anio + '}';
     }
 }
+
 class Soporte{
     public Pelicula pelicula;
     public int cantidad;
@@ -45,6 +46,7 @@ class Soporte{
         return "Soporte{" + "pelicula=" + pelicula + ", cantidad=" + cantidad + ", precio=" + precio + ", costoAlquiler=" + costoAlquiler + '}';
     } 
 }
+
 class Dvd extends Soporte{
     public double porcentajeRecargo;
     public String idiomas[];
@@ -54,6 +56,7 @@ class Dvd extends Soporte{
         this.porcentajeRecargo = porcentajeRecargo;
         this.idiomas = idiomas;
     }
+    @Override
     public double calcularCostoAlquiler(){
         this.costoAlquiler = super.calcularCostoAlquiler() + (this.costoAlquiler * (this.porcentajeRecargo / 100)) ;
         return this.costoAlquiler;
@@ -64,6 +67,7 @@ class Dvd extends Soporte{
         return "Dvd{" + "porcentajeRecargo=" + porcentajeRecargo + ", idiomas=" + Arrays.toString(idiomas) + '}' + super.toString();
     }
 }
+
 class Vhs extends Soporte{
     public String idioma;
 
@@ -76,6 +80,7 @@ class Vhs extends Soporte{
         return "Vhs{" + "idioma=" + idioma + '}' + super.toString();
     }
 }
+
 public class Problema_2_EjecutorVideoClub {
     public static void main(String[] args) {
         String idiomas[] = {"ES" , "ING"};
@@ -92,8 +97,10 @@ public class Problema_2_EjecutorVideoClub {
 }
 
 /**
- * Dvd{porcentajeRecargo=10.0, idiomas=[]}Soporte{pelicula=Pelicula{titulo=El Mundial, autor=Mattew, anio=2026}, cantidad=2, precio=10.0, costoAlquiler=22.0}
-Vhs{idioma=ES}Soporte{pelicula=Pelicula{titulo=El Mundial, autor=Mattew, anio=2026}, cantidad=2, precio=10.0, costoAlquiler=20.0}
+ * Dvd{porcentajeRecargo=10.0, idiomas=[]}Soporte{pelicula=Pelicula{titulo=El Mundial, 
+ * autor=Mattew, anio=2026}, cantidad=2, precio=10.0, costoAlquiler=22.0}
+Vhs{idioma=ES}Soporte{pelicula=Pelicula{titulo=El Mundial, autor=Mattew, anio=2026}, cantidad=2, 
+*  precio=10.0, costoAlquiler=20.0}
 BUILD SUCCESSFUL (total time: 0 seconds)
 
  */
